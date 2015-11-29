@@ -8,11 +8,14 @@ import java.util.ArrayList;
 
 import javax.swing.*;
 
-import zjlib.Config;
-import zjlib.Logger;
+import zjlib.config.Config;
+import zjlib.config.exception.ConfigFileContextNotFound;
+import zjlib.config.exception.ConfigFileParameterTooManyContext;
+import zjlib.config.exception.ConfigFilePathException;
+import zjlib.logger.Logger;
 import zjlib.cli.CliOpt;
-import zjlib.exceptions.CLIOptionArgumentRequiredException;
-import zjlib.exceptions.CLIOptionArgumentValueRequiredException;
+import zjlib.cli.exception.CLIOptionArgumentRequiredException;
+import zjlib.cli.exception.CLIOptionArgumentValueRequiredException;
 
 public class Gel {
 	static CliOpt opts; //cli option parser
@@ -48,16 +51,34 @@ public class Gel {
 		//carico configurazione iniziale
 		conf = new Config(log);
 		if(opts.isPassed("configfile")){
-			conf.readConfigFromXml(opts.getValue("configfile"),"general");
+			try {
+				conf.readConfigFromXml(opts.getValue("configfile"),"general");
+			} catch (ConfigFilePathException | ConfigFileContextNotFound
+					| ConfigFileParameterTooManyContext e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}else{
-			conf.readConfigFromXml("config.xml","general");
+			try {
+				conf.readConfigFromXml("config.xml","general");
+			} catch (ConfigFilePathException | ConfigFileContextNotFound
+					| ConfigFileParameterTooManyContext e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 		}
 		
 		//MANCA: configurazione log da config.xml
 		
 		
 		//carico il tema grafico
-		conf.readConfigFromXml("theme.xml",conf.getValueByName("theme"));
+		try {
+			conf.readConfigFromXml("theme.xml",conf.getValueByName("theme"));
+		} catch (ConfigFilePathException | ConfigFileContextNotFound
+				| ConfigFileParameterTooManyContext e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 
 		

@@ -7,8 +7,9 @@ import java.util.List;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 
-import zjlib.Config;
-import zjlib.Logger;
+import zjlib.config.Config;
+import zjlib.logger.Logger;
+
 
 /**
  * Questa classe crea il dock in cui vengono messi gli oggetti(Object)

@@ -11,8 +11,8 @@ import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
-import zjlib.Config;
-import zjlib.Logger;
+import zjlib.config.Config;
+import zjlib.logger.Logger;
 
 abstract public class Object {
 	protected Config conf;

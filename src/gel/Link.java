@@ -2,8 +2,8 @@ package gel;
 
 import java.util.ArrayList;
 
-import zjlib.Config;
-import zjlib.Logger;
+import zjlib.config.Config;
+import zjlib.logger.Logger;
 
 public class Link {
 	/*

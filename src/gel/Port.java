@@ -1,8 +1,8 @@
 package gel;
 
 
-import zjlib.Config;
-import zjlib.Logger;
+import zjlib.config.Config;
+import zjlib.logger.Logger;
 
 
 public class Port {
