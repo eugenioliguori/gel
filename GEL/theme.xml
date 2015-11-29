@@ -1,0 +1,31 @@
+<theme>
+	<black>
+		<!-- Dock -->
+		<dockBackgroundColor>#1C1C1C</dockBackgroundColor>
+		<dockTextColor>#FAFAFA</dockTextColor>
+
+		<!-- Oggetti -->
+		<objectBorderColor>#D8D8D8</objectBorderColor>
+		<objectBackgroudColor>#1C1C1C</objectBackgroudColor>
+		<objectTextColor>#FAFAFA</objectTextColor>
+		<objectTitleSize>10</objectTitleSize>
+		<objectTitleFont>arial</objectTitleFont>
+		<objectTitleColor>#FAFAFA</objectTitleColor>
+		<objectBorderSize>3</objectBorderSize>
+		<objectBorderType></objectBorderType>
+		<objectWidth>100</objectWidth>
+		<objectHeight>100</objectHeight>
+
+		<!-- Porte -->
+		<portBorderColor>#D8D8D8</portBorderColor>
+		<portBorderSize>1</portBorderSize>
+		<portBorderType></portBorderType>
+		<portWidth>50</portWidth>
+		<portHeight>50</portHeight>
+
+		<!-- Link -->
+		<LinkColor>#D8D8D8</LinkColor>
+		<LinkSize>1</LinkSize>
+		<LinkType></LinkType>
+	</black>
+</theme>

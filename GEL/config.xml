@@ -1,0 +1,8 @@
+<gel>
+    <!-- Settaggi generali -->
+	<general>
+		<logFile>gel.log</logFile>
+		<objectsRootDir>objects</objectsRootDir>
+		<theme>black</theme>
+	</general>
+</gel>
