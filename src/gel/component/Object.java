@@ -1,17 +1,23 @@
-package gel;
+package gel.component;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.border.LineBorder;
 import javax.swing.border.TitledBorder;
 
 import zjlib.config.Config;
+import zjlib.config.exception.ConfigFileContextNotFound;
+import zjlib.config.exception.ConfigFileParameterTooManyContext;
+import zjlib.config.exception.ConfigFilePathException;
 import zjlib.logger.Logger;
 
 abstract public class Object {
@@ -48,6 +54,7 @@ abstract public class Object {
 	public Object(){
 		setId(); //setto un id provvisorio
 		setName(); //setto un name provvisiorio
+		setTitle(getName()); //setto un titolo provvisorio
 		ports = new ArrayList<Port>(); //inizializzo le porte
 		objects = new ArrayList<Object>(); //inizializzo gli oggetti
 		gui = new JPanel();
@@ -60,12 +67,15 @@ abstract public class Object {
 		setLog(_log);
 		setConf(_conf);
 		setId(); //setto un id provvisorio
+		setTitle(getName()); //setto un titolo provvisorio
 		setName(); //setto un name provvisiorio
 		ports = new ArrayList<Port>(); //inizializzo le porte
 		objects = new ArrayList<Object>(); //inizializzo gli oggetti
 		gui = new JPanel();
+		
 	}
-
+	
+	
 	//------------------------------------------
 	/**
 	 * aggiunge un oggetto
@@ -158,7 +168,6 @@ abstract public class Object {
 	/**
 	 * setta id dell'oggetto con un id audogenerato
 	 */
-	@SuppressWarnings("null")
 	public void setId(){
 		Random rand = new Random();
 		id = rand.nextInt((99999 - 10000 ) + 1) + 10000;
@@ -202,6 +211,13 @@ abstract public class Object {
 	public String getName(){
 		return this.name;
 	}
+	
+	//---------------------------------------------
+	protected String title;
+	
+	public void setTitle(String _title){
+		title=_title;
+	}
 
 	/*
 	 * -------------------------------------------------------
@@ -218,21 +234,27 @@ abstract public class Object {
 		if(this.confGui==null){
 			this.confGui=this.conf;
 		}
-		gui.setPreferredSize(new Dimension(Integer.parseInt(this.confGui.getValueByName("objectWidth")),Integer.parseInt(this.confGui.getValueByName("objectHeight"))));
-		gui.setBorder(
-				new TitledBorder(
-						new LineBorder(
-								Color.decode(conf.getValueByName("objectBorderColor")),
-								Integer.parseInt(this.confGui.getValueByName("objectBorderSize"))),
-								this.name,
-							TitledBorder.CENTER, 
-							TitledBorder.TOP, 
-							new Font(conf.getValueByName("objectTitleFont"),Font.PLAIN,Integer.parseInt(this.confGui.getValueByName("objectTitleSize"))), 
-							Color.decode(conf.getValueByName("objectTitleColor"))
-							));
+		gui.setLayout(new BorderLayout());
+		
+		gui.add(new JLabel(title),BorderLayout.PAGE_START);
+//		gui.setMinimumSize(new Dimension(Integer.parseInt(this.confGui.getValueByName("objectWidth")),Integer.parseInt(this.confGui.getValueByName("objectHeight"))));
+		gui.setBorder(new LineBorder(
+				Color.decode(conf.getValueByName("objectBorderColor")),
+				Integer.parseInt(this.confGui.getValueByName("objectBorderSize"))
+				));
+							
 		
 		gui.setBackground(Color.decode(conf.getValueByName("objectBackgroudColor")));
 		gui.setForeground(Color.decode(conf.getValueByName("objectTextColor")));
+		
+		//disegno le porte e le posiziono
+//		Insets insets = gui.getInsets();
+		for(int i=0;i<this.ports.size();i++){
+			this.ports.get(i).loadGui();
+//			this.ports.get(i).gui.setBounds(insets.left, 5 + insets.top,10, 10);
+			gui.add(this.ports.get(i).gui, this.ports.get(i).getGuiPosition());
+			
+		}
 	}
 	
 	
@@ -240,25 +262,28 @@ abstract public class Object {
 	 * -------------------------------------------------------
 	 * RUN-TIME
 	 */
-
+	boolean run=false;
 	/**
 	 * Avvia l'esecuzione dell'oggeto
 	 * @return
 	 */
-	public int start(){
-		return -1;
-
+	public void start(){
+		run=true;
+		while(run){
+			core();
+		}
 	}
 
 	/**
 	 * ferma lesecuzione dell'oggetto
 	 * @return
 	 */
-	public int stop(){
-		return -1;
-
+	public void stop(){
+		run=false;
 	}
 
+	
+	abstract public int core();
 	/**
 	 * caricamento l'oggetto
 	 * 

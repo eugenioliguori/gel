@@ -1,4 +1,4 @@
-package gel;
+package gel.component;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -68,13 +68,6 @@ public class Dock extends JScrollPane{
 		
 		this.objects.add(_obj); //aggiungo l'oggetto
 		return this.objects.get(this.objects.size()-1); //lo ritotno all'utente 
-	}
-	
-	public Object addObject(Object _obj,Link _link, Port _port){
-		_port.setLink(_link);//aggancio il link alla porta
-		this.objects.add(_obj); //aggiungo l'oggetto
-		return this.objects.get(this.objects.size()-1); //lo ritotno all'utente
-		
 	}
 	
 	public int generate(){

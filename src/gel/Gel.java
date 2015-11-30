@@ -1,10 +1,10 @@
 package gel;
 
+import gel.component.Dock;
+import gel.dev.object.ViewerDataRow;
+
 import java.awt.*;
 import java.awt.event.*;
-import java.io.File;
-import java.sql.SQLException;
-import java.util.ArrayList;
 
 import javax.swing.*;
 
@@ -94,8 +94,9 @@ public class Gel {
 		
 		Dock dock = new Dock(log,conf); //inizializzo il dock
 		
-//		Object test = new Object(log,conf);
-//		dock.addObject(test);
+		ViewerDataRow test = new ViewerDataRow(log,conf);
+		test.setTitle("ViewerData");
+		dock.addObject(test);
 		
 		dock.generate(); //avvio il dock
 		

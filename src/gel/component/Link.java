@@ -1,4 +1,4 @@
-package gel;
+package gel.component;
 
 import java.util.ArrayList;
 
