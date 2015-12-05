@@ -3,6 +3,6 @@
 	<general>
 		<logFile>gel.log</logFile>
 		<objectsRootDir>objects</objectsRootDir>
-		<theme>black</theme>
+		<theme>white</theme>
 	</general>
 </gel>

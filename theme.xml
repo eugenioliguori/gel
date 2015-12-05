@@ -1,18 +1,19 @@
 <theme>
-	<black>
+	<white>
 		<!-- Dock -->
 		<dockBackgroundColor>#FFFFFF</dockBackgroundColor>
 		<dockTextColor>#000000</dockTextColor>
 
 		<!-- Oggetti -->
-		<objectBorderColor>#000000</objectBorderColor>
-		<objectBackgroudColor>#FFFFFF</objectBackgroudColor>
-		<objectTextColor>#000000</objectTextColor>
-		<objectTitleSize>10</objectTitleSize>
-		<objectTitleFont>arial</objectTitleFont>
-		<objectTitleColor>#000000</objectTitleColor>
+		<objectBorderColor>#A4A4A4</objectBorderColor>
+		<objectBorderColorSelected>#9F81F7</objectBorderColorSelected>
 		<objectBorderSize>1</objectBorderSize>
-		<objectBorderType></objectBorderType>
+		<objectBorderSizeSelected>1</objectBorderSizeSelected>
+		<objectBackgroudColor>#E6E6E6</objectBackgroudColor>
+		<objectTextColor>#000000</objectTextColor>
+		<objectTitleSize>11</objectTitleSize>
+		<objectTitleFont>Monospaced</objectTitleFont>
+		<objectTitleColor>#000000</objectTitleColor>
 
 		<!-- Porte -->
 		<portBorderColor>#000000</portBorderColor>
@@ -20,8 +21,70 @@
 		<portBorderType></portBorderType>
 
 		<!-- Link -->
-		<LinkColor>#000000</LinkColor>
+		<LinkColor>#A4A4A4</LinkColor>
+		<LinkColorSelected>#000000</LinkColorSelected>
 		<LinkSize>1</LinkSize>
 		<LinkType></LinkType>
+		
+		<!-- Menu -->
+		<menuBackgroundColor>#FFFFFF</menuBackgroundColor>
+		<menuForegroundColor>#000000</menuForegroundColor>
+		<menuBackgroundColorSelected>#D8D8D8</menuBackgroundColorSelected>
+		<menuForegroundColorSelected>#000000</menuForegroundColorSelected>
+		<menuAcceleratorColor>#ADADAD</menuAcceleratorColor>
+		<menuAcceleratorColorSelected>#151515</menuAcceleratorColorSelected>
+		<menuAcceleratorFontSize>10</menuAcceleratorFontSize>
+		<menuBorderColor>#FFFFFF</menuBorderColor>
+		<menuBorderSize>0</menuBorderSize>
+		<menuFont>Monospace</menuFont>
+		<menuFontSize>11</menuFontSize>
+		
+		<!-- Objects Manager -->
+		<objectsDefaultIcon>obj.jpg</objectsDefaultIcon>
+		<portsDefaultIcon>port.jpg</portsDefaultIcon>
+		<linksDefautlIcon>link.jpg</linksDefautlIcon>
+	</white>
+	
+	<black>
+		<!-- Dock -->
+		<dockBackgroundColor>#151515</dockBackgroundColor>
+		<dockTextColor>#F2F2F2</dockTextColor>
+
+		<!-- Oggetti -->
+		<objectBorderColor>#D8D8D8</objectBorderColor>
+		<objectBorderColorSelected>#FACC2E</objectBorderColorSelected>
+		<objectBorderSize>1</objectBorderSize>
+		<objectBorderSizeSelected>1</objectBorderSizeSelected>
+		<objectBackgroudColor>#151515</objectBackgroudColor>
+		<objectTextColor>#D8D8D8</objectTextColor>
+		<objectTitleSize>12</objectTitleSize>
+		<objectTitleFont>Monospaced</objectTitleFont>
+		<objectTitleColor>#D8D8D8</objectTitleColor>
+
+		<!-- Porte -->
+		<portBorderColor>#000000</portBorderColor>
+		<portBorderSize>1</portBorderSize>
+		<portBorderType></portBorderType>
+
+		<!-- Link -->
+		<LinkColor>#DBA901</LinkColor>
+		<LinkColorSelected>#FACC2E</LinkColorSelected>
+		<LinkSize>1</LinkSize>
+		<LinkSizeSelected>1</LinkSizeSelected>
+		<LinkType></LinkType>
+		
+		<!-- Menu -->
+		<menuBackgroundColor>#151515</menuBackgroundColor>
+		<menuForegroundColor>#F2F2F2</menuForegroundColor>
+		<menuBackgroundColorSelected>#292929</menuBackgroundColorSelected>
+		<menuForegroundColorSelected>#F2F2F2</menuForegroundColorSelected>
+		<menuAcceleratorColor>#ADADAD</menuAcceleratorColor>
+		<menuAcceleratorColorSelected>#151515</menuAcceleratorColorSelected>
+		<menuAcceleratorFontSize>10</menuAcceleratorFontSize>
+		<menuBorderColor>#000000</menuBorderColor>
+		<menuBorderSize>0</menuBorderSize>
+		<menuFont>Monospace</menuFont>
+		<menuFontSize>11</menuFontSize>
+		
 	</black>
 </theme>

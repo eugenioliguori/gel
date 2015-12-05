@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <classpath>
-	<classpathentry kind="src" path="src"/>
+	<classpathentry excluding="gel/component/Port_bak.java|gel/dev/object/ViewerDataRow.java|gel/dev/object/FileReader.java" kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
 	<classpathentry combineaccessrules="false" kind="src" path="/zjlib"/>
 	<classpathentry kind="output" path="bin"/>

@@ -16,6 +16,7 @@ import javax.swing.border.EmptyBorder;
 
 import zjlib.logger.Logger;
 import zjlib.config.Config;
+import gel.component.Dock;
 import gel.component.Object;
 import gel.component.Port;
 import gel.component.TextLineNumber;
@@ -29,36 +30,44 @@ import gel.component.TextLineNumber;
 public class ViewerDataRow extends Object{
 	JFrame vdWinText; //finestra mostra testo
 
-	public ViewerDataRow(Logger _log, Config _conf){
-		super(_log,_conf);
+	public ViewerDataRow(Logger _log, Config _conf,Dock _dock){
+		super(_log,_conf,_dock);
 
 		/*
 		 * inizializzo le porte standard
 		 */
-		Port pIn = new Port("IN"); //porta dati in
+		Port pIn = new Port(_log,_conf,this.dock,"IN"); //porta dati in
 		pIn.setGuiPosition(Port.LEFT);
 		this.addPort(pIn);
-		Port pOut = new Port("OUT"); //porta dati out
+		Port pOut = new Port(_log,_conf,this.dock,"OUT"); //porta dati out
 		pOut.setGuiPosition(Port.RIGHT);
 		this.addPort(pOut);
 
 		vdWinText=new VDWinText(_log,_conf,this.getName());
 
 		//listner per il click e apertura della casella di testo
-		this.gui.addMouseListener(new MouseAdapter() {
-			@Override
-			public void mousePressed(MouseEvent e) {
-				vdWinText.setVisible(true);
-			}
-		});
+//		this.gui.addMouseListener(new MouseAdapter() {
+//			//apertura finestra 
+//			@Override
+//			public void mousePressed(MouseEvent e) {
+//				
+//				
+//				if (e.getClickCount() == 2) {
+//					vdWinText.setVisible(true);
+//				}
+//			}
+//			
+//			
+//		});
 
 	}
 
 
 	public int core(){
+		System.out.println(getPort(0).read());
 		return 0;
 	}
-	
+
 	/**
 	 * Implementa una finestra per la visualizzazione del test
 	 */

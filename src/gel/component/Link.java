@@ -1,18 +1,25 @@
 package gel.component;
 
-import java.util.ArrayList;
+import gel.component.ports.Port;
+import gel.dock.Dock;
+
+import javax.swing.JComponent;
+
+
+
 
 import zjlib.config.Config;
 import zjlib.logger.Logger;
 
-public class Link {
+public class Link extends JComponent{
+	private static final long serialVersionUID = -6776233289358430922L;
 	/*
 	 * ------------------------------------------
 	 * LOG e CONFIG
 	 */
 	Config conf;
 	Logger log;
-	
+
 	public void setConf(Config _conf){
 		this.conf=_conf;
 	}
@@ -26,19 +33,27 @@ public class Link {
 		return this.log;
 	}
 	
-	//--------------------------------------------
-	/**
-	 * costruttore
+	/*
+	 * ---------------------------------------------
+	 * DOCK
 	 */
-	public Link(){
-		
-	}
+	protected Dock dock;
+	public void setDock(Dock _dock){dock=_dock;}
+	public Dock getDock(){return dock;}
+
+	/*
+	 * ----------------------------------------------
+	 * TERMINALS
+	 */
+	public Port portA,portB;
 	
-	/**
-	 * costruttore
+	/*
+	 * -----------------------------------------------
+	 * GUI
 	 */
-	public Link(Logger _log, Config _conf){
-		setLog(_log);
-		setConf(_conf);
-	}
+//	public void guiLoad(){
+//		
+//	}
+	
+	
 }
